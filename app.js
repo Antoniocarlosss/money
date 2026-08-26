@@ -1,5 +1,5 @@
 const KEY="money-data-v1",GOAL=125250,fmt=new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"});
-document.head.insertAdjacentHTML("beforeend",'<link rel="stylesheet" href="profile.css"><style>.boards{justify-content:center;width:100%}@media(max-width:720px){.boards{justify-content:flex-start}}</style>');
+document.head.insertAdjacentHTML("beforeend",'<link rel="stylesheet" href="profile.css"><style>.boards{justify-content:space-between;width:100%}.boards button{flex:1;min-width:0;max-width:92px}@media(max-width:720px){.boards{justify-content:flex-start}.boards button{flex:none;min-width:69px}}</style>');
 let data={name:"",birthday:"",startDate:"",avatar:"",done:[],history:[],achievements:[],settings:{sound:true,vibration:true},birthdayShown:""},board=0,tab="challenge",modal=null,highlight=0,touchX=0,chosenAvatar="";
 try{const x=JSON.parse(localStorage.getItem(KEY));if(x&&Array.isArray(x.done))data={...data,...x}}catch(e){}
 const save=()=>localStorage.setItem(KEY,JSON.stringify(data)),sum=()=>data.done.reduce((a,b)=>a+b,0),pct=()=>data.done.length/5,range=b=>[b*50+1,b*50+50];
